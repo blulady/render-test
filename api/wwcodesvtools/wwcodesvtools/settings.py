@@ -16,7 +16,7 @@ from datetime import timedelta
 import django_heroku
 
 env = environ.Env()
-reading .env file
+# reading .env file
 environ.Env.read_env(".env")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
