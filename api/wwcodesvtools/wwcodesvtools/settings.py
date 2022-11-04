@@ -15,9 +15,9 @@ import environ
 from datetime import timedelta
 import django_heroku
 
-#env = environ.Env()
-# reading .env file
-#environ.Env.read_env(".env")
+env = environ.Env()
+reading .env file
+environ.Env.read_env(".env")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
