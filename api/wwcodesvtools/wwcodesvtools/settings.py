@@ -92,7 +92,8 @@ WSGI_APPLICATION = 'wwcodesvtools.wsgi.application'
 
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
-    'default': env.db(),
+#     'default': env.db(), 
+    'default': os.environ.get.db(),
 }
 
 
