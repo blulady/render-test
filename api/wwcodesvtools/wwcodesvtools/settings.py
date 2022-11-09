@@ -88,7 +88,11 @@ WSGI_APPLICATION = 'wwcodesvtools.wsgi.application'
 
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
-    'default': env.db(),
+    #'default': env.db(),
+    "default": {
+        "NAME": f"{BASE_DIR}/db.sqlite3",
+        "ENGINE_KEY": "django.db.backends.sqlite3"
+    }
 }
 
 
