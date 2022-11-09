@@ -27,12 +27,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+#SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['wwcode-chtools-api.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -88,6 +92,7 @@ WSGI_APPLICATION = 'wwcodesvtools.wsgi.application'
 
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
+
     #'default': env.db(),
     "default": {
         "NAME": f"{BASE_DIR}/db.sqlite3",
@@ -135,14 +140,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Email Settings
-SENDGRID_API_KEY = env('SENDGRID_API_KEY')
-EMAIL_BACKEND = env('EMAIL_BACKEND')
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_SENDER = env('EMAIL_SENDER')
+# SENDGRID_API_KEY = env('SENDGRID_API_KEY')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+# EMAIL_BACKEND = env('EMAIL_BACKEND')
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
+# EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+# EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+# EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_HOST_PASSWORD = os.environ.get(SENDGRID_API_KEY)
+# EMAIL_SENDER = env('EMAIL_SENDER')
+EMAIL_SENDER = os.environ.get('EMAIL_SENDER')
 
 # Logging Information
 LOGGING = {
