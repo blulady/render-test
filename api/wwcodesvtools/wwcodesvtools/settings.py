@@ -95,7 +95,7 @@ DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
     'default': dj_database_url.config()
     }
-}
+
 
 
 # Password validation
