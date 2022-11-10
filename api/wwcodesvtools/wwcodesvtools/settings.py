@@ -95,13 +95,7 @@ DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
 
     #'default': env.db(),
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME":"postgres_dev",
-        "USER": "postgres_dev",
-        "PASSWORD": "$",
-        "HOST": "db",
-        "PORT": 5432,
+    'default': dj_database_url.config()
     }
 }
 
