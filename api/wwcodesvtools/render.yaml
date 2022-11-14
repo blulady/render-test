@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: wwcodesvtools
+    env: docker
+
+  databases:
+    - name:  DATABASE_NAME
+      databaseName:  DATABASE_NAME
+      user: DATABASE_USER
+
+
+
