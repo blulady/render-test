@@ -1,4 +1,4 @@
-2FROM python:3.8
+FROM python:3.8
 ENV 2PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
