@@ -1,5 +1,5 @@
-FROM python:3.8
-ENV PYTHONUNBUFFERED 1
+2FROM python:3.8
+ENV 2PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
@@ -15,4 +15,4 @@ RUN apt-get update -y
 RUN apt-get install openssh-client -y
 RUN apt-get install openssh-server -y
 
-CMD gunicorn wwcodesvtools.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn 12wwcodesvtools.wsgi:application --bind 0.0.0.0:$PORT
