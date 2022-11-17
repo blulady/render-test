@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1.2
-RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 FROM python:3.8
 ENV 2PYTHONUNBUFFERED 1
+RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
