@@ -14,7 +14,7 @@ import os
 import environ
 from datetime import timedelta
 import dj_database_url
-import django_heroku
+#import django_heroku
 
 env = environ.Env()
 # reading .env file
