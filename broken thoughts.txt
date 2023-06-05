@@ -1,0 +1,60 @@
+- I need to change from SECRET_KEY = env('SECRET_KEY') to SECRET_KEY = os.environ.get('SECRET_KEY')
+- some weird values for the secret keys
+	DATABASE_HOST=db and SENDGRID_API_KEY='dummy-api-key'
+- using docker container that has postgres in it?
+- Not sure if ALLOWED_HOSTS is causing issues
+- I have tried to use environment variables, secret files, and linked environment groups
+I get errors with all of them. Different errors but all having to do with the values of 
+the various keys
+
+File "/usr/local/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+Nov 3 05:18:23 PM      conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+Nov 3 05:18:23 PM  django.db.utils.OperationalError: could not translate host name "db" to address: Name or service not known
+
+read tcp 127.0.0.1:42210->127.0.0.1:10000: read: connection reset by peer
+
+changed from SECRET_KEY = env('SECRET_KEY') to SECRET_KEY = os.environ.get('SECRET_KEY') 
+getting this error
+File "/usr/local/lib/python3.8/site-packages/psycopg2/init.py", line 127, in connect
+Nov 3 05:43:27 PM      conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+Nov 3 05:43:27 PM  django.db.utils.OperationalError: could not translate host name "db" to address: Name or service not known
+changed 'default': env.db(), to 'default': os.environ.get.db(), and am currently alternating between this error 
+
+File "/code/wwcodesvtools/settings.py", line 96, in <module>
+Nov 3 06:10:47 PM      'default': os.environ.get.db(),
+Nov 3 06:10:47 PM  AttributeError: 'function' object has no attribute 'db'
+
+and this error (how am I even getting this error? I commented out the code?)
+
+File "/code/wwcodesvtools/settings.py", line 95, in <module>
+Nov 3 06:13:10 PM      'default': env.db(),
+Nov 3 06:13:10 PM  NameError: name 'env' is not defined 
+
+f"{BASE_DIR}/db.sqlite3"
+from settings in render Dockerfile Path
+./Dockerfile
+
+and instead used docker-compose up in Docker Command
+added Docker Build Context Directory .Dockerfile -got rid of it needed a directory, not a file
+
+https://elements.heroku.com/buildpacks/heroku/django-heroku
+
+https://www.analyticsvidhya.com/blog/2020/10/step-by-step-guide-for-deploying-a-django-application-using-heroku-for-free/
+
+added dj-database-url & whitenoise into requirements.txt updated settings
+
+
+
+
+will want to see you write code
+datastructures 
+classes
+try/catch exceptions
+
+Expecting more understanding from more senior devs
+gotchas
+language
+
+december 3rd - 10th
+
+aws
